@@ -1,0 +1,37 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Oo]bj/
+[Bb]in/
+TestResults/
+/*.log
+packages/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.sln.GhostDoc.xml
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Others
+*.Cache
+*.cache
+*.datasource
+*.bak
+
+# MSTest result file
+TestResult.xml
