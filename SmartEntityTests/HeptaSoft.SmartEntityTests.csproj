@@ -6,8 +6,8 @@
     <ProjectGuid>{A73AE411-3AA1-4C76-8104-147D161C1621}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartEntityTests</RootNamespace>
-    <AssemblyName>SmartEntityTests</AssemblyName>
+    <RootNamespace>HeptaSoft.SmartEntityTests</RootNamespace>
+    <AssemblyName>HeptaSoft.SmartEntityTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -61,9 +61,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEntity\SmartEntity.csproj">
+    <ProjectReference Include="..\SmartEntity\HeptaSoft.SmartEntity.csproj">
       <Project>{975EACA4-744E-412A-8CEC-6A145A9BAFF4}</Project>
-      <Name>SmartEntity</Name>
+      <Name>HeptaSoft.SmartEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

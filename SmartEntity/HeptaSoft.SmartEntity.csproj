@@ -7,8 +7,8 @@
     <ProjectGuid>{975EACA4-744E-412A-8CEC-6A145A9BAFF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartEntity</RootNamespace>
-    <AssemblyName>SmartEntity</AssemblyName>
+    <RootNamespace>HeptaSoft.SmartEntity</RootNamespace>
+    <AssemblyName>HeptaSoft.SmartEntity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
