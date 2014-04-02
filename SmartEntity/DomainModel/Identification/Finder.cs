@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using SmartEntity.Basic;
-using SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Basic;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
 
-namespace SmartEntity.DomainModel.Identification
+namespace HeptaSoft.SmartEntity.DomainModel.Identification
 {
     internal class Finder : IFinder
     {

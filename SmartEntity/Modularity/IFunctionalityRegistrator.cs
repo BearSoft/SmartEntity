@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     public interface IFunctionalityRegistrator
     {

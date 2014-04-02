@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace SmartEntity.DomainModel.Mapping.Configuration
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration
 {
     public interface ICustomMappingConfigurationBuilder<TSource, TDestination>
     {

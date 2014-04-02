@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.DomainModel.Validation
+﻿namespace HeptaSoft.SmartEntity.DomainModel.Validation
 {
     public class ValidationConfiguration<TEntity>
     {

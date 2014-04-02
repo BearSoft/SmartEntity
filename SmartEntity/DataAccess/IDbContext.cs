@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace SmartEntity.DataAccess
+namespace HeptaSoft.SmartEntity.DataAccess
 {
     /// <summary>
     /// A facade interface for the DbContext (for mock-ability).

@@ -1,22 +1,22 @@
-﻿using SmartEntity.DataAccess;
-using SmartEntity.DomainModel.Identification;
-using SmartEntity.DomainModel.Identification.Configuration;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.DomainModel.Mapping.Configuration;
-using SmartEntity.DomainModel.Mapping.Engines;
-using SmartEntity.DomainModel.Mapping.Mappings;
-using SmartEntity.Environment;
-using SmartEntity.Environment.Providers;
-using SmartEntity.Modularity;
+﻿using HeptaSoft.SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.DomainModel.Identification.Configuration;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
+using HeptaSoft.SmartEntity.Environment;
+using HeptaSoft.SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Modularity;
 
-namespace SmartEntity
+namespace HeptaSoft.SmartEntity
 {
     internal static class ControlModule
     {
         /// <summary>
         /// The _underlying container.
         /// </summary>
-        private static DependencyContainer _underlyingContainer;
+        private static DependencyContainer underlyingContainer;
 
         /// <summary>
         /// Gets the owned resolver.
@@ -28,13 +28,13 @@ namespace SmartEntity
         {
             get
             {
-                if (_underlyingContainer == null)
+                if (underlyingContainer == null)
                 {
-                    _underlyingContainer = new DependencyContainer();
-                    RegisterImplementations(_underlyingContainer);
+                    underlyingContainer = new DependencyContainer();
+                    RegisterImplementations(underlyingContainer);
                 }
 
-                return _underlyingContainer;
+                return underlyingContainer;
             }
         }
 

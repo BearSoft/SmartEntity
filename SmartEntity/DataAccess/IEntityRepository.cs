@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace SmartEntity.DataAccess
+namespace HeptaSoft.SmartEntity.DataAccess
 {
     /// <summary>
     /// The IEntityRepository interface. 

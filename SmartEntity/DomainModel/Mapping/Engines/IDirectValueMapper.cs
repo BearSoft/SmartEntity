@@ -1,7 +1,7 @@
 ﻿using System;
-using SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
 
-namespace SmartEntity.DomainModel.Mapping.Engines
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Engines
 {
     internal interface IDirectValueMapper
     {

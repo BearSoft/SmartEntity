@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DataAccess;
 
-namespace SmartEntity.UnitOfWork
+namespace HeptaSoft.SmartEntity.UnitOfWork
 {
     /// <summary>
     /// Unit of work implementation.

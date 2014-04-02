@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using SmartEntity.Basic;
+using HeptaSoft.SmartEntity.Basic;
 
-namespace SmartEntity.DataAccess
+namespace HeptaSoft.SmartEntity.DataAccess
 {
     /// <summary>
     /// The base of every repository.

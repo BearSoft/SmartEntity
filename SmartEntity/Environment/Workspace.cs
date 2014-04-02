@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq.Expressions;
-using SmartEntity.DataAccess;
-using SmartEntity.DomainModel;
-using SmartEntity.DomainModel.Identification.Configuration;
-using SmartEntity.DomainModel.Mapping.Configuration;
-using SmartEntity.DomainModel.Mapping.Conversion;
-using SmartEntity.Environment.Providers;
-using SmartEntity.Modularity;
+using HeptaSoft.SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DomainModel;
+using HeptaSoft.SmartEntity.DomainModel.Identification.Configuration;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Modularity;
 
-namespace SmartEntity.Environment
+namespace HeptaSoft.SmartEntity.Environment
 {
     public class Workspace : IWorkspace
     {

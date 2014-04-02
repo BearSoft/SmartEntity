@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.DomainModel.Mapping.Engines
+﻿namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Engines
 {
     public interface IPropertyMatcher
     {

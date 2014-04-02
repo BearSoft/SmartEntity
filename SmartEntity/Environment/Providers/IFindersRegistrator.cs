@@ -1,7 +1,7 @@
 ﻿using System;
-using SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.DomainModel.Identification;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IFindersRegistrator
     {

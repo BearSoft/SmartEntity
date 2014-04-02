@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DataAccess;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class RepositoriesAccessor : IRepositoryAccessorConfigurator, IRepositoryAccessor
     {

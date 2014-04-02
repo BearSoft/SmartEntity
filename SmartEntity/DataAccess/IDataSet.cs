@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.DataAccess
+﻿namespace HeptaSoft.SmartEntity.DataAccess
 {
     public interface IDataSet<T>
     {

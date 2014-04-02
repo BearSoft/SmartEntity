@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class RepositoryFilterExecutorsContainer : IRepositoryFilterExecutorProvider, IRepositoryFilterExecutorRegistrator
     {

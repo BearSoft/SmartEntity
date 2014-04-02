@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.Basic
+﻿namespace HeptaSoft.SmartEntity.Basic
 {
     public class ValueContainer<T>
     {

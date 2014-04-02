@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
 
-namespace SmartEntity.DomainModel.Identification
+namespace HeptaSoft.SmartEntity.DomainModel.Identification
 {
     internal interface IFinderFactory
     {

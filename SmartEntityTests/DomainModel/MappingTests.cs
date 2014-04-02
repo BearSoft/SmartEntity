@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
+using HeptaSoft.SmartEntityTests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SmartEntityTests.Helpers;
 
-namespace SmartEntityTests.DomainModel
+namespace HeptaSoft.SmartEntityTests.DomainModel
 {
     [TestClass]
     public class MappingTests

@@ -1,6 +1,6 @@
-﻿using SmartEntity.Modularity;
+﻿using HeptaSoft.SmartEntity.Modularity;
 
-namespace SmartEntity.Basic
+namespace HeptaSoft.SmartEntity.Basic
 {
     class GenericTypedFactory<T> 
     {

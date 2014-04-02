@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace SmartEntity.DomainModel.Mapping.Accessors
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors
 {
     internal interface IPropertyAccessor : IValueGetter
     {

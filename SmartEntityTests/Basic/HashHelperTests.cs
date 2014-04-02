@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SmartEntity.Basic;
+﻿using HeptaSoft.SmartEntity.Basic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SmartEntityTests.Basic
+namespace HeptaSoft.SmartEntityTests.Basic
 {
     [TestClass]
     public class HashHelperTests

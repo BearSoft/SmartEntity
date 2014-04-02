@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartEntity.Basic
+namespace HeptaSoft.SmartEntity.Basic
 {
     public class LazyResolver<T>
     {

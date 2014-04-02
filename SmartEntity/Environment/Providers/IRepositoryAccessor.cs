@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IRepositoryAccessor
     {

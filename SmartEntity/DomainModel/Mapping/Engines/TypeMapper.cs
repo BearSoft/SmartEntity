@@ -1,9 +1,9 @@
 ﻿using System;
-using SmartEntity.Basic;
-using SmartEntity.DomainModel.Identification;
-using SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Basic;
+using HeptaSoft.SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel.Mapping.Engines
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Engines
 {
     internal class TypeMapper : ITypeMapper
     {

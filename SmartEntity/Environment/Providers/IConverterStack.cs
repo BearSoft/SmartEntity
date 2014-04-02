@@ -1,7 +1,7 @@
 using System;
-using SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IConverterStack
     {

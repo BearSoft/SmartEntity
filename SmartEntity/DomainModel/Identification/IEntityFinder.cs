@@ -1,7 +1,7 @@
 using System;
-using SmartEntity.DomainModel.Mapping;
+using HeptaSoft.SmartEntity.DomainModel.Mapping;
 
-namespace SmartEntity.DomainModel.Identification
+namespace HeptaSoft.SmartEntity.DomainModel.Identification
 {
     internal interface IEntityFinder
     {

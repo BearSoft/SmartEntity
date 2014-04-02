@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DomainModel.Mapping;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.DomainModel.Mapping.Engines;
-using SmartEntity.DomainModel.Mapping.Mappings;
+using HeptaSoft.SmartEntity.DomainModel.Mapping;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class MappingsManager : IMappingsManager
     {

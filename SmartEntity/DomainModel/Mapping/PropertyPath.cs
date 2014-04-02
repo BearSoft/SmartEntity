@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.DomainModel.Mapping
+﻿namespace HeptaSoft.SmartEntity.DomainModel.Mapping
 {
     public class PropertyPath
     {

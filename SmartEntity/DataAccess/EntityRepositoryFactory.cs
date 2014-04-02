@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartEntity.DataAccess
+namespace HeptaSoft.SmartEntity.DataAccess
 {
     internal class EntityRepositoryFactory<TEntityData> : IEntityRepositoryFactory<TEntityData> 
         where TEntityData : class 

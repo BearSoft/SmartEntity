@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SmartEntity.DomainModel.Mapping.Conversion
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion
 {
     public abstract class ConverterBase : IConverter
     {

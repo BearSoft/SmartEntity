@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartEntity.DomainModel.Mapping.Conversion
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion
 {
     public interface IConverter
     {

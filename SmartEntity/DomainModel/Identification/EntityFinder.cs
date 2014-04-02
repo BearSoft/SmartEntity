@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DomainModel.Mapping;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.DomainModel.Mapping.Engines;
-using SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.DomainModel.Mapping;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel.Identification
+namespace HeptaSoft.SmartEntity.DomainModel.Identification
 {
     internal class EntityFinder : IEntityFinder
     {

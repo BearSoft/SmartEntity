@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class ConvertersStack : IConverterStack
     {

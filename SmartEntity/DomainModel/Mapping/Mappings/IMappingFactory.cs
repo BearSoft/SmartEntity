@@ -1,6 +1,6 @@
-﻿using SmartEntity.DomainModel.Mapping.Accessors;
+﻿using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
 
-namespace SmartEntity.DomainModel.Mapping.Mappings
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings
 {
     internal interface IMappingFactory
     {

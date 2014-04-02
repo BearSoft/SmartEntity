@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     internal class DependencyContainer : UnityContainer, IFunctionalityRegistrator, IFunctionalityResolver
     {

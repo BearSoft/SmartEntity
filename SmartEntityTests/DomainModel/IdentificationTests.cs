@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SmartEntityTests.DomainModel
+namespace HeptaSoft.SmartEntityTests.DomainModel
 {
     [TestClass]
     public class IdentificationTests

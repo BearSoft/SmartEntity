@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartEntity.DomainModel.Mapping.Accessors
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors
 {
     internal interface IValueGetterFactory
     {

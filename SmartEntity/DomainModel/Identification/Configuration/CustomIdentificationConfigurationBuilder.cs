@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using SmartEntity.Basic;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Basic;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel.Identification.Configuration
+namespace HeptaSoft.SmartEntity.DomainModel.Identification.Configuration
 {
     internal class CustomCustomIdentificationConfigurationBuilder<TEntityData> : ICustomIdentificationConfigurationBuilder<TEntityData>
         where TEntityData:class 

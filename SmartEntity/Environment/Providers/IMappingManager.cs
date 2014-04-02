@@ -1,9 +1,9 @@
 ﻿using System;
-using SmartEntity.DomainModel.Mapping;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.DomainModel.Mapping.Mappings;
+using HeptaSoft.SmartEntity.DomainModel.Mapping;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IMappingsManager
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace SmartEntity.DomainModel.Mapping.Conversion
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion
 {
     internal class ConvertibleConverter : ConverterBase
     {

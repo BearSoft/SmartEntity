@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SmartEntity.Basic
+namespace HeptaSoft.SmartEntity.Basic
 {
     public class HashHelper
     {

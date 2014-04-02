@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IRepositoryFilterExecutorRegistrator
     {

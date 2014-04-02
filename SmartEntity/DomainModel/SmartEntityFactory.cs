@@ -1,8 +1,8 @@
-﻿using SmartEntity.DomainModel.Identification;
-using SmartEntity.DomainModel.Mapping.Engines;
-using SmartEntity.Environment.Providers;
+﻿using HeptaSoft.SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel
+namespace HeptaSoft.SmartEntity.DomainModel
 {
     public class SmartEntityFactory<TData> where TData : class, new()
     {

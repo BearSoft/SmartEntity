@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace SmartEntity.DomainModel.Identification.Configuration
+namespace HeptaSoft.SmartEntity.DomainModel.Identification.Configuration
 {
     public interface ICustomIdentificationConfigurationBuilder<TEntityData>
         where TEntityData : class

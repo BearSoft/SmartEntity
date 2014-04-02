@@ -2,11 +2,11 @@
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Unity;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     public class FlexBootstrapper
     {
-        private readonly UnityBootstrapperWrapper _underlyingBootstrapper;
+        private readonly UnityBootstrapperWrapper underlyingBootstrapper;
 
         private bool isBusy;
 
@@ -27,10 +27,10 @@ namespace SmartEntity.Modularity
         {
             this.modules = new ModuleList();
             this.injector = new DependencyContainer();
-            this._underlyingBootstrapper = new UnityBootstrapperWrapper(moduleCatalog);
+            this.underlyingBootstrapper = new UnityBootstrapperWrapper(moduleCatalog);
 
-            this._underlyingBootstrapper.Container.RegisterInstance<IFunctionalityRegistrator>(this.injector);
-            this._underlyingBootstrapper.Container.RegisterInstance<IFunctionalityResolver>(this.injector);
+            this.underlyingBootstrapper.Container.RegisterInstance<IFunctionalityRegistrator>(this.injector);
+            this.underlyingBootstrapper.Container.RegisterInstance<IFunctionalityResolver>(this.injector);
             this.injector.RegisterInstance<ModuleList>(this.modules);
         }
 
@@ -101,7 +101,7 @@ namespace SmartEntity.Modularity
         private void InitModules()
         {
             this.modules.Clear();
-            this._underlyingBootstrapper.Run();
+            this.underlyingBootstrapper.Run();
         }
 
         /// <summary>

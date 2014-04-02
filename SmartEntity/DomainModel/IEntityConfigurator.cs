@@ -1,9 +1,9 @@
 ﻿using System;
-using SmartEntity.DataAccess;
-using SmartEntity.DomainModel.Identification.Configuration;
-using SmartEntity.DomainModel.Mapping.Configuration;
+using HeptaSoft.SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DomainModel.Identification.Configuration;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration;
 
-namespace SmartEntity.DomainModel
+namespace HeptaSoft.SmartEntity.DomainModel
 {
     public interface IEntityConfigurator<TEntityData>
         where TEntityData : class

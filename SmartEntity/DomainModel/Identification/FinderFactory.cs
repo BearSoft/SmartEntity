@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel.Identification
+namespace HeptaSoft.SmartEntity.DomainModel.Identification
 {
     internal class FinderFactory : IFinderFactory
     {

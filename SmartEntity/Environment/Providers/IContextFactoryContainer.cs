@@ -1,7 +1,7 @@
 ﻿using System;
-using SmartEntity.DataAccess;
+using HeptaSoft.SmartEntity.DataAccess;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal interface IContextFactoryContainer
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace SmartEntity.Basic
+namespace HeptaSoft.SmartEntity.Basic
 {
     public class ExpressionHelper
     {

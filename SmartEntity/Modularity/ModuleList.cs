@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     internal class ModuleList : List<ModuleBase>
     {

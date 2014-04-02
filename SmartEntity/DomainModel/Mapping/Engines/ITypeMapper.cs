@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartEntity.DomainModel.Mapping.Engines
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Engines
 {
     internal interface ITypeMapper
     {

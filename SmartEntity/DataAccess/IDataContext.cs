@@ -1,5 +1,5 @@
 ﻿
-namespace SmartEntity.DataAccess
+namespace HeptaSoft.SmartEntity.DataAccess
 {
     public interface IDataContext : IDbContext
     {

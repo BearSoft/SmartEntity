@@ -3,7 +3,7 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     internal class UnityBootstrapperWrapper: UnityBootstrapper
     {

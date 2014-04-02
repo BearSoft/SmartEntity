@@ -1,4 +1,4 @@
-﻿namespace SmartEntity.DomainModel.Mapping.Configuration
+﻿namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration
 {
     public interface IEntityMappingConfiguration<TEntityData>
     {

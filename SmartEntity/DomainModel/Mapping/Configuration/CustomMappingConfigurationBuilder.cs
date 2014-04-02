@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq.Expressions;
-using SmartEntity.Basic;
-using SmartEntity.DomainModel.Mapping.Accessors;
-using SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Basic;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Environment.Providers;
 
-namespace SmartEntity.DomainModel.Mapping.Configuration
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration
 {
     internal class CustomCustomMappingConfigurationBuilder<TSource, TDestination> : ICustomMappingConfigurationBuilder<TSource, TDestination>
     {

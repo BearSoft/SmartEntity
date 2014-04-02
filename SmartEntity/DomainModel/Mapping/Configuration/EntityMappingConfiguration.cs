@@ -1,6 +1,6 @@
-﻿using SmartEntity.Modularity;
+﻿using HeptaSoft.SmartEntity.Modularity;
 
-namespace SmartEntity.DomainModel.Mapping.Configuration
+namespace HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration
 {
     internal class EntityMappingConfiguration<TEntityData> : IEntityMappingConfiguration<TEntityData>
     {

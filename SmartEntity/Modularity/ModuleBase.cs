@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Modularity;
 
-namespace SmartEntity.Modularity
+namespace HeptaSoft.SmartEntity.Modularity
 {
     public abstract class ModuleBase : IModule
     {

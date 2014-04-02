@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.DomainModel.Identification;
 
-namespace SmartEntity.Environment.Providers
+namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class FindersManager : IFindersRegistrator, IFinderProvider
     {

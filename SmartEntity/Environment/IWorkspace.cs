@@ -1,7 +1,7 @@
-using SmartEntity.DomainModel;
-using SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.DomainModel;
+using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
 
-namespace SmartEntity.Environment
+namespace HeptaSoft.SmartEntity.Environment
 {
     public interface IWorkspace
     {
