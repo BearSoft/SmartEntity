@@ -1,5 +1,4 @@
-using HeptaSoft.SmartEntity.DomainModel;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.Mapping.Conversion;
 
 namespace HeptaSoft.SmartEntity.Environment
 {

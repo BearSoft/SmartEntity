@@ -1,7 +1,7 @@
 ﻿using System;
-using HeptaSoft.SmartEntity.DomainModel.Mapping;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
+using HeptaSoft.SmartEntity.Mapping;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Mapping.Mappings;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {

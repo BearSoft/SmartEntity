@@ -1,4 +1,4 @@
-﻿using HeptaSoft.SmartEntity.Modularity;
+﻿using HeptaSoft.Common.Modularity;
 
 namespace HeptaSoft.SmartEntity.Basic
 {

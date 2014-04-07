@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq.Expressions;
-using HeptaSoft.SmartEntity.DataAccess;
-using HeptaSoft.SmartEntity.DomainModel;
-using HeptaSoft.SmartEntity.DomainModel.Identification.Configuration;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
+﻿using HeptaSoft.Common.Modularity;
+using HeptaSoft.Common.DataAccess;
 using HeptaSoft.SmartEntity.Environment.Providers;
-using HeptaSoft.SmartEntity.Modularity;
+using HeptaSoft.SmartEntity.Identification.Configuration;
+using HeptaSoft.SmartEntity.Mapping.Configuration;
+using HeptaSoft.SmartEntity.Mapping.Conversion;
+using System;
+using System.Linq.Expressions;
 
 namespace HeptaSoft.SmartEntity.Environment
 {

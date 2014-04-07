@@ -1,4 +1,4 @@
-using HeptaSoft.SmartEntity.DataAccess;
+using HeptaSoft.Common.DataAccess;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {

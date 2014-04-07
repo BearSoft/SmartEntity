@@ -1,13 +1,13 @@
-﻿using HeptaSoft.SmartEntity.DataAccess;
-using HeptaSoft.SmartEntity.DomainModel.Identification;
-using HeptaSoft.SmartEntity.DomainModel.Identification.Configuration;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Configuration;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
+﻿using HeptaSoft.Common.Modularity;
+using HeptaSoft.Common.DataAccess;
 using HeptaSoft.SmartEntity.Environment;
 using HeptaSoft.SmartEntity.Environment.Providers;
-using HeptaSoft.SmartEntity.Modularity;
+using HeptaSoft.SmartEntity.Identification;
+using HeptaSoft.SmartEntity.Identification.Configuration;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Mapping.Configuration;
+using HeptaSoft.SmartEntity.Mapping.Engines;
+using HeptaSoft.SmartEntity.Mapping.Mappings;
 
 namespace HeptaSoft.SmartEntity
 {
@@ -47,7 +47,6 @@ namespace HeptaSoft.SmartEntity
             // DataAccess
             containerRegistrant.RegisterAsSigleton<IRepositoryFilterExecutorProvider, RepositoryFilterExecutorsContainer>();
             containerRegistrant.RegisterAsSigleton<IRepositoryFilterExecutorRegistrator, RepositoryFilterExecutorsContainer>();
-            containerRegistrant.RegisterAsSigleton(typeof(IEntityRepositoryFactory<>), typeof(EntityRepositoryFactory<>));
             
             // DomainModel
            
@@ -73,7 +72,7 @@ namespace HeptaSoft.SmartEntity
             containerRegistrant.RegisterAsSigleton<ITypeMapper, TypeMapper>();
 
             // DomainModel.Mapping.Mappings
-            containerRegistrant.RegisterAsSigleton<IMapping, Mapping>();
+            containerRegistrant.RegisterAsSigleton<IMapping, Mapping.Mappings.Mapping>();
             containerRegistrant.RegisterAsSigleton<IMappingFactory, MappingFactory>();
 
             // DomainModel.Validation
@@ -92,11 +91,6 @@ namespace HeptaSoft.SmartEntity
             containerRegistrant.RegisterAsSigleton<IContextFactoryContainer, ContextFactoryManager>();
             containerRegistrant.RegisterAsSigleton<IRepositoryAccessorConfigurator, RepositoriesAccessor>();
             containerRegistrant.RegisterAsSigleton<IRepositoryAccessor, RepositoriesAccessor>();
-
-            
-            // Modularity
-            containerRegistrant.RegisterAsSigleton<IFunctionalityRegistrator, DependencyContainer>();
-            containerRegistrant.RegisterAsSigleton<IFunctionalityResolver, DependencyContainer>();
         }
     }
 }

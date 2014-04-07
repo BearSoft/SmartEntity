@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Conversion;
+using HeptaSoft.SmartEntity.Mapping.Conversion;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {

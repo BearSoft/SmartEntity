@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.DomainModel.Identification;
+using HeptaSoft.SmartEntity.Identification;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {

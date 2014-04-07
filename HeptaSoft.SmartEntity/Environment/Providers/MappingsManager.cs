@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.DomainModel.Mapping;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Accessors;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Engines;
-using HeptaSoft.SmartEntity.DomainModel.Mapping.Mappings;
+using HeptaSoft.SmartEntity.Mapping;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Mapping.Engines;
+using HeptaSoft.SmartEntity.Mapping.Mappings;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
