@@ -50,10 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Basic\HashHelperTests.cs" />
-    <Compile Include="DomainModel\ConfigurationTests.cs" />
-    <Compile Include="DomainModel\IdentificationTests.cs" />
-    <Compile Include="DomainModel\MappingTests.cs" />
+    <Compile Include="ConfigurationTests.cs" />
+    <Compile Include="IdentificationTests.cs" />
+    <Compile Include="MappingTests.cs" />
     <Compile Include="Helpers\ClassA.cs" />
     <Compile Include="Helpers\ClassB.cs" />
     <Compile Include="Helpers\ClassBStringified.cs" />
@@ -65,6 +64,9 @@
       <Project>{975EACA4-744E-412A-8CEC-6A145A9BAFF4}</Project>
       <Name>HeptaSoft.SmartEntity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Basic\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

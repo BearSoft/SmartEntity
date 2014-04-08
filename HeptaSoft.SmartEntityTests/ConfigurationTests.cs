@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HeptaSoft.SmartEntityTests.DomainModel
+namespace HeptaSoft.SmartEntityTests
 {
     [TestClass]
     public class ConfigurationTests
