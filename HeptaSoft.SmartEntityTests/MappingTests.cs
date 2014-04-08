@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using HeptaSoft.SmartEntityTests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HeptaSoft.SmartEntityTests.DomainModel
+namespace HeptaSoft.SmartEntityTests
 {
     [TestClass]
     public class MappingTests

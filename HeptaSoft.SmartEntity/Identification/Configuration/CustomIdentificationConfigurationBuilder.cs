@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using HeptaSoft.Common.Helpers;
 using HeptaSoft.SmartEntity.Basic;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Mapping.Accessors;

@@ -1,4 +1,5 @@
 ﻿using System;
+using HeptaSoft.Common.Helpers;
 using HeptaSoft.SmartEntity.Basic;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Identification;
