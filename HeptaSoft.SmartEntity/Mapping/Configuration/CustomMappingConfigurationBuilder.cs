@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq.Expressions;
-using HeptaSoft.Common.Helpers;
-using HeptaSoft.SmartEntity.Basic;
+﻿using HeptaSoft.Common.Helpers;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System;
+using System.Linq.Expressions;
 
 namespace HeptaSoft.SmartEntity.Mapping.Configuration
 {

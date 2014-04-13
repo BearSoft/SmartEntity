@@ -1,5 +1,4 @@
 ﻿using HeptaSoft.Common.Modularity;
-using HeptaSoft.Common.DataAccess;
 using HeptaSoft.SmartEntity.Environment;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Identification;

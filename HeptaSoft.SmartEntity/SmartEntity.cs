@@ -8,7 +8,7 @@ namespace HeptaSoft.SmartEntity
     public class SmartEntity<TData> where TData : class, new()
     {
         /// <summary>
-        /// Wether the entity data was loaded from repository or not.
+        /// Whether the entity data was loaded from repository or not.
         /// </summary>
         private bool wasLoadedFromRepository;
 
@@ -85,8 +85,8 @@ namespace HeptaSoft.SmartEntity
 
         /// <summary>
         /// Builds the specified dto's "surrogate" entity data (existing or new, updated with dto's values).
-        /// The existing entity data is retrieved from the repository, based on the entitie's identification configuration.
-        /// If not exisiting entity could be retirved, a new attached (added) entity is used.
+        /// The existing entity data is retrieved from the repository, based on the entities identification configuration.
+        /// If not existing entity could be retrieved, a new attached (added) entity is used.
         /// </summary>
         /// <typeparam name="TDto">The type of the dto.</typeparam>
         /// <param name="source">The source.</param>
@@ -149,7 +149,7 @@ namespace HeptaSoft.SmartEntity
         /// </summary>
         /// <typeparam name="TDto">The type of the dto.</typeparam>
         /// <param name="surrogateDto">The surrogate dto.</param>
-        /// <returns><c>True</c> in case the entity was found and succesfully removed.</returns>
+        /// <returns><c>True</c> in case the entity was found and successfully removed.</returns>
         public bool RemoveByDto<TDto>(TDto surrogateDto)
         {
             var existingEntity = this.finder.FindByDto(typeof(TData), surrogateDto) as TData;

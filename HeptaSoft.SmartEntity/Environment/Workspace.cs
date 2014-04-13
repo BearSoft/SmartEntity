@@ -27,12 +27,12 @@ namespace HeptaSoft.SmartEntity.Environment
         private readonly IContextFactoryContainer contextFactoryContainer;
 
         /// <summary>
-        /// The repository filter executor registrator
+        /// The repository filter executor registration
         /// </summary>
         private readonly IRepositoryFilterExecutorRegistrator repositoryFilterExecutorRegistrator;
 
         /// <summary>
-        /// The entity data factory registrator.
+        /// The entity data factory registration.
         /// </summary>
         private readonly IRepositoryAccessorConfigurator repositoryAccessorConfigurator;
 
@@ -41,8 +41,8 @@ namespace HeptaSoft.SmartEntity.Environment
         /// </summary>
         /// <param name="convertersStack">The converters stack.</param>
         /// <param name="contextFactoryContainer">The context factory container.</param>
-        /// <param name="repositoryFilterExecutorRegistrator">The repository filter executor registrator.</param>
-        /// <param name="repositoryAccessorConfigurator">The entity data factory registrator.</param>
+        /// <param name="repositoryFilterExecutorRegistrator">The repository filter executor registration.</param>
+        /// <param name="repositoryAccessorConfigurator">The entity data factory registration.</param>
         /// <param name="resolver">The resolver.</param>
         internal Workspace(IConverterStack convertersStack, IContextFactoryContainer contextFactoryContainer, IRepositoryFilterExecutorRegistrator repositoryFilterExecutorRegistrator, IRepositoryAccessorConfigurator repositoryAccessorConfigurator, IFunctionalityResolver resolver)
         {
@@ -68,8 +68,10 @@ namespace HeptaSoft.SmartEntity.Environment
             }
         }
 
+        #region IWorkspace
+
         /// <summary>
-        /// Pushes a new converter on top of the converteres stack.
+        /// Pushes a new converter on top of the converters stack.
         /// Whenever a converted is needed, the selection starts with the top-most instance in the stack.
         /// </summary>
         /// <param name="converter">The converter instance.</param>
@@ -82,12 +84,12 @@ namespace HeptaSoft.SmartEntity.Environment
         }
 
         /// <summary>
-        /// Register an entity configurator.
+        /// Register an entity configuration.
         /// </summary>
-        /// <returns>The configurator for the specified entity type.</returns>
+        /// <returns>The configuration for the specified entity type.</returns>
         public void RegisterEntityConfigurator<TEntityData>(IEntityConfigurator<TEntityData> configurator) where TEntityData : class
         {
-            // register the cotext factory
+            // register the context factory
             var contextFactory = configurator.GetDataContextFactory();
             this.contextFactoryContainer.RegisterContextFactory(typeof(TEntityData), contextFactory);
             var repositoryFactory = this.resolver.Resolve<IEntityRepositoryFactory<TEntityData>>();
@@ -108,7 +110,9 @@ namespace HeptaSoft.SmartEntity.Environment
             configurator.ConfigureMappings(entityMappingConfiguration);
 
             // run validation configuration
-
         }
+
+        #endregion
+
     }
 }

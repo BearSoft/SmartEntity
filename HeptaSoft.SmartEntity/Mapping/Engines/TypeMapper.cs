@@ -55,51 +55,33 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             this.repositoryAccessor = repositoryAccessor;
         }
 
-        /// <summary>
-        /// Maps the specified dto to required target type.
-        /// If the target is an entity, repository retrieval will be tried first.
-        /// </summary>
-        /// <param name="sourceInstance">The source instance.</param>
-        /// <param name="targetType">Type of the target.</param>
-        /// <returns>The new source instance (new or existing) updated with the Dto provided values.</returns>
+        #region ITypeMapper
+
+        /// <inheritdoc />
         public object MapToEntity(object sourceInstance, Type targetType)
         {
             return this.MapToEntity(sourceInstance, targetType, false);
         }
 
-        /// <summary>
-        /// Maps the entity to dto.
-        /// </summary>
-        /// <param name="sourceInstance">The source instance.</param>
-        /// <param name="targetType">Type of the target.</param>
-        /// <returns>The dto instance.</returns>
-        public object MapToDto(object sourceInstance, Type targetType)
-        {
-            return this.MapToDto(sourceInstance, targetType, null, 0, 0);
-        }
-
-        /// <summary>
-        /// Maps the specified dto to required target type.
-        /// If the target is an entity and <paramref name="disableSelfIdentification"/> is set to <c>false</c>, repository retrieval will be tried first.
-        /// </summary>
-        /// <param name="sourceInstance">The source instance.</param>
-        /// <param name="targetType">Type of the target.</param>
-        /// <param name="disableSelfIdentification">if set to <c>true</c> [disable self identification].</param>
-        /// <returns>The new source instance (new or existing) updated with the Dto provided values.</returns>
+        /// <inheritdoc />
         public object MapToEntity(object sourceInstance, Type targetType, bool disableSelfIdentification)
         {
             return this.MapToEntity(sourceInstance, targetType, null, disableSelfIdentification, 1, 1);
         }
 
-        /// <summary>
-        /// Updates all the properties in the target with the values of the corresponding properties from the provided source.
-        /// </summary>
-        /// <param name="sourceInstance">The source instance.</param>
-        /// <param name="targetInstance">The target instance.</param>
+        /// <inheritdoc />
         public void MapToEntity(object sourceInstance, object targetInstance)
         {
             this.Map(sourceInstance, targetInstance, null, 1, 1, MappingDirection.FromDtoToEntity);
         }
+
+        /// <inheritdoc />
+        public object MapToDto(object sourceInstance, Type targetType)
+        {
+            return this.MapToDto(sourceInstance, targetType, null, 0, 0);
+        }
+
+        #endregion
 
         /// <summary>
         /// Maps the specified source instance to a new target instance.
@@ -175,7 +157,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
         /// <param name="targetPropertyParent">The target property parent.</param>
         /// <param name="sourceDepthLevel">The source depth level.</param>
         /// <param name="targetDepthLevel">The target depth level.</param>
-        /// <param name="mappingDirrection">The mapping dirrection.</param>
+        /// <param name="mappingDirrection">The mapping direction.</param>
         /// <returns>
         ///   <c>True</c> in case any mapping have been done (any information from source caused an effect on destination).
         /// </returns>
@@ -240,7 +222,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
                         // there is no source property matching this target one. 
                         if (!ReflectionHelper.IsDirectValue(targetProperty.ValueType))
                         {
-                            // The target is a DTO and has no omolougue property in source: map this new Dto(the target property value) against the same source instance (there might be flaterned properties in the source).
+                            // The target is a DTO and has no homologue property in source: map this new Dto(the target property value) against the same source instance (there might be flaterned properties in the source).
                             var thisTargetPropertyPath = new PropertyPath(targetProperty.PropertyName);
                             
                             object targetPropertyValue = null;
@@ -262,7 +244,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
                         }
                         else
                         {
-                            // the target is direct value and has no corresponing property in source. This property cannot be mapped
+                            // the target is direct value and has no corresponding property in source. This property cannot be mapped
                         }
                     }
                 }

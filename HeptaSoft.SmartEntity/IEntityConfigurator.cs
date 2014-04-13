@@ -21,7 +21,7 @@ namespace HeptaSoft.SmartEntity
         void ConfigureMappings(IEntityMappingConfiguration<TEntityData> mappingConfigurationBuilder);
 
         /// <summary>
-        /// Configures the identification deffinition of this entity.
+        /// Configures the identification definition of this entity.
         /// </summary>
         /// <param name="customIdentificationConfigurationBuilder">The identification configuration builder.</param>
         void ConfigureIdentification(ICustomIdentificationConfigurationBuilder<TEntityData> customIdentificationConfigurationBuilder);

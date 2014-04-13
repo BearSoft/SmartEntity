@@ -22,6 +22,7 @@ namespace HeptaSoft.SmartEntity
         private readonly IRepositoryAccessor repositoryAccessor;
         
         #region Framework-Exposed Constructor
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="SmartEntity{TData}" /> class.
         /// The "exposed" constructor.
@@ -30,6 +31,7 @@ namespace HeptaSoft.SmartEntity
             : this(ControlModule.OwnedResolver.Resolve<ITypeMapper>(), ControlModule.OwnedResolver.Resolve<IEntityFinder>(), ControlModule.OwnedResolver.Resolve<IRepositoryAccessor>())
         {
         }
+
         #endregion
 
         /// <summary>
@@ -55,9 +57,9 @@ namespace HeptaSoft.SmartEntity
         }
 
         /// <summary>
-        /// Creates a <see cref="SmartEntity{T}"/> instance with sepcified data.
+        /// Creates a <see cref="SmartEntity{T}"/> instance with specified data.
         /// </summary>
-        /// <returns>The <see cref="SmartEntity{T}"/> instnace.</returns>
+        /// <returns>The <see cref="SmartEntity{T}"/> instance.</returns>
         public SmartEntity<TData> Create(TData entityData)
         {
             var newInstance = new SmartEntity<TData>(this.mapper, this.finder, this.repositoryAccessor, entityData);

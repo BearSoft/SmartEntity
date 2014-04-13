@@ -10,7 +10,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         }
 
         /// <summary>
-        /// Does the actual conversion convertion of provided value to the required type.
+        /// Does the actual conversion conversion of provided value to the required type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="requiredType">Type of the required.</param>

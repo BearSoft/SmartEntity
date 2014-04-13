@@ -8,12 +8,12 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         /// <summary>
         /// The possible input types.
         /// </summary>
-        private readonly ICollection<Type> _possibleInputTypes;
+        private readonly ICollection<Type> possibleInputTypes;
 
         /// <summary>
         /// The possible input types.
         /// </summary>
-        private readonly ICollection<Type> _possibleOutputTypes;
+        private readonly ICollection<Type> possibleOutputTypes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConverterBase" /> class.
@@ -22,8 +22,8 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         /// <param name="possibleOutputTypes">The possible output types.</param>
         protected ConverterBase(ICollection<Type> possibleInputTypes, ICollection<Type> possibleOutputTypes)
         {
-            this._possibleInputTypes = possibleInputTypes;
-            this._possibleOutputTypes = possibleOutputTypes;
+            this.possibleInputTypes = possibleInputTypes;
+            this.possibleOutputTypes = possibleOutputTypes;
         }
 
         /// <summary>
@@ -77,11 +77,11 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         /// </returns>
         public virtual bool CanConvert(Type @from, Type to)
         {
-            return (this._possibleInputTypes.Contains(@from)) && (this._possibleOutputTypes.Contains(to));
+            return (this.possibleInputTypes.Contains(@from)) && (this.possibleOutputTypes.Contains(to));
         }
 
         /// <summary>
-        /// When overrides, does the actual conversion convertion of provided value to the required type.
+        /// When overrides, does the actual conversion conversion of provided value to the required type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="requiredType">Type of the required.</param>

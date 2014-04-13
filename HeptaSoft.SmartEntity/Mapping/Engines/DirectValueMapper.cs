@@ -27,16 +27,9 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             this.mappingsManager = mappingsManager;
         }
 
-        /// <summary>
-        /// Maps the direct value.
-        /// </summary>
-        /// <param name="sourceDtoInstance">The source dto instance.</param>
-        /// <param name="targetPropertyAccessor">The target property accessor.</param>
-        /// <param name="targetOffsetPath">The target offset path.</param>
-        /// <returns>
-        /// The converted value.
-        /// </returns>
-        /// <exception cref="System.InvalidOperationException">There is no registered Converter for the required conversion.</exception>
+        #region IDirectValueMapper
+
+        /// <inheritdoc />
         public object GetConvertedDirectValue(object sourceDtoInstance, IPropertyAccessor targetPropertyAccessor, PropertyPath targetOffsetPath)
         {
             var targetPropertyPath = new PropertyPath(targetOffsetPath, targetPropertyAccessor.PropertyName);
@@ -56,15 +49,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             }
         }
 
-        /// <summary>
-        /// Gets the converted direct value.
-        /// </summary>
-        /// <param name="originalSourceValue">The original source value.</param>
-        /// <param name="targetValueType">Type of the target value.</param>
-        /// <returns>
-        /// The converted value.
-        /// </returns>
-        /// <exception cref="System.InvalidOperationException">There is no registered Converter for the required conversion.</exception>
+        /// <inheritdoc />
         public object GetConvertedDirectValue(object originalSourceValue, Type targetValueType)
         {
             object convertedSourceValue = null;
@@ -96,5 +81,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
 
             return convertedSourceValue;
         }
+
+        #endregion
     }
 }
