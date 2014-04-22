@@ -1,4 +1,4 @@
-﻿namespace HeptaSoft.SmartEntityTests.Helpers
+﻿namespace HeptaSoft.SmartEntityTests.TestData
 {
     public class ClassBStringified
     {

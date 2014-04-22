@@ -53,10 +53,10 @@
     <Compile Include="ConfigurationTests.cs" />
     <Compile Include="IdentificationTests.cs" />
     <Compile Include="MappingTests.cs" />
-    <Compile Include="Helpers\ClassA.cs" />
-    <Compile Include="Helpers\ClassB.cs" />
-    <Compile Include="Helpers\ClassBStringified.cs" />
-    <Compile Include="Helpers\ClassC.cs" />
+    <Compile Include="TestData\ClassA.cs" />
+    <Compile Include="TestData\ClassB.cs" />
+    <Compile Include="TestData\ClassBStringified.cs" />
+    <Compile Include="TestData\ClassC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

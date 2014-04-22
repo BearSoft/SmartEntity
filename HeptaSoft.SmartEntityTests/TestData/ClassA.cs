@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace HeptaSoft.SmartEntityTests.Helpers
+namespace HeptaSoft.SmartEntityTests.TestData
 {
-    public class ClassB
+    public class ClassA
     {
         public int NumericProperty { get; set; }
         public DateTime DateProperty { get; set; }
         public string StringProperty { get; set; }
-        public ClassB ObjectProperty { get; set; }
+        public ClassA ObjectProperty { get; set; }
     }
 }

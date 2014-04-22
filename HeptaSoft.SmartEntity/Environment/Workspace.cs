@@ -27,7 +27,7 @@ namespace HeptaSoft.SmartEntity.Environment
         private readonly IContextFactoryContainer contextFactoryContainer;
 
         /// <summary>
-        /// The repository filter executor registration
+        /// The repository filter executor registrator
         /// </summary>
         private readonly IRepositoryFilterExecutorRegistrator repositoryFilterExecutorRegistrator;
 
