@@ -1,6 +1,6 @@
-﻿using System;
+﻿using HeptaSoft.SmartEntity.Identification;
+using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Identification;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
@@ -33,11 +33,9 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             this.finderFactory = finderFactory;
         }
 
-        /// <summary>
-        /// Adds the key.
-        /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
-        /// <param name="finder">The key definition.</param>
+        #region IFindersRegistrator
+
+        /// <inheritdoc />
         public void RegisterFinder(Type entityType, IFinder finder)
         {
             if (!this.identificationPredicates.ContainsKey(entityType))
@@ -48,11 +46,11 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             this.identificationPredicates[entityType].Add(finder);
         }
 
-        /// <summary>
-        /// Gets the identification predicates associated with the specified type.
-        /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
-        /// <returns>All instances of <see cref="IFinder"/> defined for the specified type.</returns>
+        #endregion
+
+        #region IFinderProvider
+
+        /// <inheritdoc />
         public IEnumerable<IFinder> GetFinders(Type entityType)
         {
             if (!this.identificationPredicates.ContainsKey(entityType))
@@ -63,6 +61,8 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
 
             return this.identificationPredicates[entityType];
         }
+
+        #endregion
 
         /// <summary>
         /// Builds the default finder.

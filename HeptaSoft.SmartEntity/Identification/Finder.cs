@@ -1,10 +1,9 @@
-﻿using System;
+﻿using HeptaSoft.Common.Helpers;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using HeptaSoft.Common.Helpers;
-using HeptaSoft.SmartEntity.Basic;
-using HeptaSoft.SmartEntity.Mapping.Accessors;
 
 namespace HeptaSoft.SmartEntity.Identification
 {
@@ -26,11 +25,20 @@ namespace HeptaSoft.SmartEntity.Identification
         private readonly Dictionary<IPropertyAccessor, ParameterExpression> requiredParameters;
 
         /// <summary>
-        /// Gets the required properties.
+        /// Initializes a new instance of the <see cref="Finder" /> class.
         /// </summary>
-        /// <value>
-        /// The required properties.
-        /// </value>
+        /// <param name="keyProperties">The key properties.</param>
+        /// <param name="getFromRepositoryLambda">The get from repository lambda.</param>
+        public Finder(IEnumerable<IPropertyAccessor> keyProperties, LambdaExpression getFromRepositoryLambda)
+        {
+            this.requiredParameters = new Dictionary<IPropertyAccessor, ParameterExpression>();
+            this.filterWithParams = this.BuildFilterCondition(keyProperties, this.requiredParameters);
+            this.getFromRepositoryDelegate = getFromRepositoryLambda.Compile();
+        }
+
+        #region IFinder
+
+        /// <inheritdoc />
         public IEnumerable<IPropertyAccessor> RequiredProperties
         {
             get
@@ -39,33 +47,18 @@ namespace HeptaSoft.SmartEntity.Identification
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Finder" /> class.
-        /// </summary>
-        /// <param name="keyProperties">The key properties.</param>
-        /// <param name="getFromRepositoryLambda">The get from repository lambda.</param>
-        public Finder(IEnumerable<IPropertyAccessor> keyProperties, LambdaExpression getFromRepositoryLambda)
-        {
-            this.requiredParameters = new Dictionary<IPropertyAccessor, ParameterExpression>();
-            this.filterWithParams = this.BuildFilterCondition(keyProperties, this.requiredParameters); 
-            this.getFromRepositoryDelegate = getFromRepositoryLambda.Compile();
-        }
-
-        /// <summary>
-        /// Identifies the specified parameters with values.
-        /// </summary>
-        /// <param name="keyPropertyValues">The key property values.</param>
-        /// <returns></returns>
+        /// <inheritdoc />
         public object Find(IDictionary<IPropertyAccessor, object> keyPropertyValues)
         {
             var parametersWithValues = this.GetParametersWithValues(keyPropertyValues, this.requiredParameters);
             var filterExpression = this.ReplaceParameteresWithValues(this.filterWithParams, parametersWithValues);
-            
+
             var existingEntity = this.getFromRepositoryDelegate.DynamicInvoke(filterExpression);
 
             return existingEntity;
         }
 
+        #endregion
 
         /// <summary>
         /// Builds the expression for the filter condition, with parameters.
@@ -78,12 +71,12 @@ namespace HeptaSoft.SmartEntity.Identification
             const string ValueParameterPrefix = "@p";
             const string InstanceSymbol = "x";
 
-            List<ParameterExpression> parameters = new List<ParameterExpression>();
+            var parameters = new List<ParameterExpression>();
             Expression filterExpression = null;
             int k = 0;
 
             ParameterExpression entityInstance = null;
-           
+
             foreach (var keyProperty in keyProperties)
             {
                 if (entityInstance == null)
@@ -121,17 +114,16 @@ namespace HeptaSoft.SmartEntity.Identification
             {
                 return null;
             }
-            
+
         }
 
         /// <summary>
-        /// Replaces the parameteres with values.
+        /// Replaces the parameters with values.
         /// </summary>
         /// <param name="targetExpression">The target expression.</param>
         /// <param name="parametersWithValue">The parameters with value.</param>
         /// <returns></returns>
-        private Expression ReplaceParameteresWithValues(
-            Expression targetExpression, IDictionary<ParameterExpression, ConstantExpression> parametersWithValue)
+        private Expression ReplaceParameteresWithValues(Expression targetExpression, IDictionary<ParameterExpression, ConstantExpression> parametersWithValue)
         {
             var modifiedExpression = targetExpression;
             foreach (var parameterWithValue in parametersWithValue)
@@ -156,7 +148,7 @@ namespace HeptaSoft.SmartEntity.Identification
             foreach (var requiredParameter in requiredParametersDictionary)
             {
                 var requiredParamPropertyAccessor = requiredParameter.Key;
-                
+
                 if (keyPropertyValues.ContainsKey(requiredParamPropertyAccessor))
                 {
                     var propertyValue = keyPropertyValues[requiredParamPropertyAccessor];

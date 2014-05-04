@@ -1,6 +1,6 @@
-﻿using System;
+﻿using HeptaSoft.SmartEntity.Mapping.Conversion;
+using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Mapping.Conversion;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
@@ -15,21 +15,16 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
         {
             this.converters = new List<IConverter>();
         }
-        /// <summary>
-        /// Adds a converter on top of the stack. The last added has the highest priority on retrieval.
-        /// </summary>
-        /// <param name="converter">The converter.</param>
+
+        #region IConverterStack
+
+        /// <inheritdoc />
         public void PushConverter(IConverter converter)
         {
             this.converters.Insert(0, converter);
         }
 
-        /// <summary>
-        /// Gets the top matching converter.
-        /// </summary>
-        /// <param name="fromType">From type.</param>
-        /// <param name="toType">To type.</param>
-        /// <returns>The top matching converter, or null if no matching converter exists in the stack.</returns>
+        /// <inheritdoc />
         public IConverter GetTopMatchingConverter(Type fromType, Type toType)
         {
             foreach (var converter in this.converters)
@@ -42,5 +37,7 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
 
             return null;
         }
+
+        #endregion
     }
 }

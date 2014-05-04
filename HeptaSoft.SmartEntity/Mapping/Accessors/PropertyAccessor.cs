@@ -8,8 +8,6 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
         private const string DtoInstanceSymbol = "x";
 
         private readonly Delegate setValueDelegate;
-        
-        public string PropertyName { get; private set; }
 
         public PropertyAccessor(Type dtoType, string propertyName)
             : base(BuildValueGetter(dtoType, propertyName))
@@ -19,16 +17,32 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
             this.setValueDelegate = this.BuildValueSetter(dtoType, propertyName);
         }
 
+        #region IPropertyAccessor
+
+        /// <inheritdoc />
+        public string PropertyName { get; private set; }
+
+        /// <inheritdoc />
         public void SetValue(object instance, object value)
         {
             this.setValueDelegate.DynamicInvoke(instance, value);
         }
 
-        public MemberExpression MemberExpression { get; private set; }
-
+        /// <inheritdoc />
         public Type DtoType { get; private set; }
 
-        private static Delegate BuildValueGetter(Type dtoType, string propertyName )
+        /// <inheritdoc />
+        public MemberExpression MemberExpression { get; private set; }
+
+        #endregion
+
+        /// <summary>
+        /// Builds the value getter.
+        /// </summary>
+        /// <param name="dtoType">Type of the dto.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns>The compiled lambda expression.</returns>
+        private static Delegate BuildValueGetter(Type dtoType, string propertyName)
         {
             var propertyInfo = dtoType.GetProperty(propertyName);
 
@@ -39,6 +53,12 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
             return lambda.Compile();
         }
 
+        /// <summary>
+        /// Builds the value setter.
+        /// </summary>
+        /// <param name="dtoType">Type of the dto.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns>The compiled lambda expression.</returns>
         private Delegate BuildValueSetter(Type dtoType, string propertyName)
         {
             const string ValueSymbol = "v";
@@ -53,6 +73,6 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
 
             this.MemberExpression = propertyExp;
             return lambda.Compile();
-        } 
+        }
     }
 }

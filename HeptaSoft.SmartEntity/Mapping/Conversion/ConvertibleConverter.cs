@@ -13,12 +13,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         {
         }
 
-        /// <summary>
-        /// Does the actual conversion conversion of provided value to the required type.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="requiredType">Type of the required.</param>
-        /// <returns>The converted value.</returns>
+        /// <inheritdoc />
         protected override object DoConvert(object value, Type requiredType)
         {
             var valueAsConvertible = (IConvertible)value;
@@ -27,17 +22,10 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
             return valueAsConvertible.ToType(requiredType, formatProvider);
         }
 
-        /// <summary>
-        /// Determines whether this instance can convert from <paramref name="from"/> type to <paramref name="to"/> type.
-        /// </summary>
-        /// <param name="from">Source type</param>
-        /// <param name="to">Required output type.</param>
-        /// <returns>
-        ///   <c>true</c> if this instance can perform the conversion between specified types; otherwise, <c>false</c>.
-        /// </returns>
-        public override bool CanConvert(Type @from, Type to)
+        /// <inheritdoc />
+        public override bool CanConvert(Type from, Type to)
         {
-            return (typeof(IConvertible).IsAssignableFrom(@from)) && (typeof(IConvertible).IsAssignableFrom(to));
+            return (typeof(IConvertible).IsAssignableFrom(from)) && (typeof(IConvertible).IsAssignableFrom(to));
         }
     }
 }

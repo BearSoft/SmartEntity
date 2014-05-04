@@ -36,12 +36,9 @@ namespace HeptaSoft.SmartEntity.Mapping.Configuration
             this.valueGetterFactory = valueGetterFactory;
         }
 
-        /// <summary>
-        /// Adds a new custom defined mapping.
-        /// </summary>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
-        /// <param name="sourceProperty">The source property.</param>
-        /// <param name="destinationProperty">The destination property.</param>
+        #region ICustomMappingConfigurationBuilder
+
+        /// <inheritdoc />
         public void AddMapping<TValue>(Expression<Func<TSource, TValue>> sourceProperty, Expression<Func<TDestination, TValue>> destinationProperty)
         {
             var sourcePropertyAccessor = this.propertyAccessorsProvider.GetPropertyAccessor(typeof(TSource), ExpressionHelper.GetMemberName(sourceProperty));
@@ -50,18 +47,15 @@ namespace HeptaSoft.SmartEntity.Mapping.Configuration
             this.mappingsManager.AddMapping(sourcePropertyAccessor, targetPropertyAccessor);
         }
 
-        /// <summary>
-        /// Adds a new custom defined mapping.
-        /// </summary>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
-        /// <param name="sourceValueGetDelegate">The source value get delegate.</param>
-        /// <param name="destinationProperty">The destination property.</param>
+        /// <inheritdoc />
         public void AddMapping<TValue>(Func<TSource, TValue> sourceValueGetDelegate, Expression<Func<TDestination, TValue>> destinationProperty)
         {
             var sourceValueGetter = this.valueGetterFactory.CreateValueGetter(sourceValueGetDelegate);
             var targetPropertyAccessor = this.propertyAccessorsProvider.GetPropertyAccessor(typeof(TDestination), ExpressionHelper.GetMemberName(destinationProperty));
 
-            this.mappingsManager.AddMapping( sourceValueGetter, typeof(TSource), targetPropertyAccessor);
+            this.mappingsManager.AddMapping(sourceValueGetter, typeof(TSource), targetPropertyAccessor);
         }
+
+        #endregion
     }
 }

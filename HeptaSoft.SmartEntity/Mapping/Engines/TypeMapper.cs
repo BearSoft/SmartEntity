@@ -1,8 +1,7 @@
-﻿using System;
-using HeptaSoft.Common.Helpers;
-using HeptaSoft.SmartEntity.Basic;
+﻿using HeptaSoft.Common.Helpers;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Identification;
+using System;
 
 namespace HeptaSoft.SmartEntity.Mapping.Engines
 {
@@ -106,7 +105,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             {
                 targetInstance = this.entityFinder.FindByDto(targetType, sourceInstance, targetPropertyParent);
             }
-            
+
             if (targetInstance == null)
             {
                 targetInstance = this.repositoryAccessor.CreateEntityData(targetType);
@@ -135,7 +134,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             bool anythingMapped = false;
 
             targetInstance = ReflectionHelper.CreateNewInstance(targetType);
-            
+
             // 2. Populate all the properties from the provided source dto.
             anythingMapped = this.Map(sourceInstance, targetInstance, targetPropertyParent, sourceDepthLevel, targetDepthLevel, MappingDirection.FromEntityToDto);
 
@@ -167,7 +166,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             bool somethingMapped = false;
 
             // execute mapping process only if we are not too far in depth from one operand to the other (operands = source / target)
-            if (Math.Abs(sourceDepthLevel-targetDepthLevel)<= MaxDepthDelta)
+            if (Math.Abs(sourceDepthLevel - targetDepthLevel) <= MaxDepthDelta)
             {
                 var targetProperties = this.propertyAccessorsProvider.GetPropertyAccessors(targetInstance.GetType());
 
@@ -204,11 +203,11 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
                                     targetPropertyValue = this.MapToDto(sourceValue, targetProperty.ValueType, null, sourceDepthLevel++, targetDepthLevel++);
                                 }
 
-                                if (targetPropertyValue!= null)
+                                if (targetPropertyValue != null)
                                 {
                                     somethingMapped = true;
                                 }
- 
+
                                 targetProperty.SetValue(targetInstance, targetPropertyValue);
                             }
                             else
@@ -224,11 +223,11 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
                         {
                             // The target is a DTO and has no homologue property in source: map this new Dto(the target property value) against the same source instance (there might be flaterned properties in the source).
                             var thisTargetPropertyPath = new PropertyPath(targetProperty.PropertyName);
-                            
+
                             object targetPropertyValue = null;
                             if (mappingDirrection == MappingDirection.FromDtoToEntity)
                             {
-                                targetPropertyValue = this.MapToEntity(sourceInstance, targetProperty.ValueType,thisTargetPropertyPath, false, sourceDepthLevel, targetDepthLevel++);
+                                targetPropertyValue = this.MapToEntity(sourceInstance, targetProperty.ValueType, thisTargetPropertyPath, false, sourceDepthLevel, targetDepthLevel++);
                             }
                             else
                             {

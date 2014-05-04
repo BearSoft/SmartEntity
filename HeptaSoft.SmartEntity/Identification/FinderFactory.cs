@@ -1,8 +1,8 @@
-﻿using System;
+﻿using HeptaSoft.SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using HeptaSoft.SmartEntity.Environment.Providers;
-using HeptaSoft.SmartEntity.Mapping.Accessors;
 
 namespace HeptaSoft.SmartEntity.Identification
 {
@@ -22,11 +22,9 @@ namespace HeptaSoft.SmartEntity.Identification
             this.repositoryFilterExecutorProvider = repositoryFilterExecutorProvider;
         }
 
-        /// <summary>
-        /// Creates a new <see cref="IFinder"/> instance.
-        /// </summary>
-        /// <param name="keyProperties">The key properties.</param>
-        /// <returns></returns>
+        #region IFinderFactory
+
+        /// <inheritdoc />
         public IFinder Create(IEnumerable<IPropertyAccessor> keyProperties)
         {
             var entityType = keyProperties.First().DtoType;
@@ -34,13 +32,15 @@ namespace HeptaSoft.SmartEntity.Identification
             {
                 var getFromRepositoryLambda =
                     this.repositoryFilterExecutorProvider.GetFilterExecutor(entityType);
-               return new Finder(keyProperties, getFromRepositoryLambda);
+                return new Finder(keyProperties, getFromRepositoryLambda);
             }
             catch (Exception ex)
             {
                 throw new InvalidOperationException(string.Format("Cannot create the finder instance for entity type<{0}>.", entityType), ex);
             }
         }
+
+        #endregion
 
     }
 }

@@ -10,14 +10,14 @@
         /// <returns></returns>
         public bool PropertyNamesMatch(string propertyNameToMatch, string candidate)
         {
-            const string IgnoreChar = ">";
+            const string ignoreChar = ">";
 
             if (propertyNameToMatch.ToLower() == candidate.ToLower())
             {
                 return true;
             }
 
-            if (propertyNameToMatch.Replace(IgnoreChar, string.Empty).ToLower() == candidate.Replace(IgnoreChar, string.Empty).ToLower())
+            if (propertyNameToMatch.Replace(ignoreChar, string.Empty).ToLower() == candidate.Replace(ignoreChar, string.Empty).ToLower())
             {
                 return true;
             }

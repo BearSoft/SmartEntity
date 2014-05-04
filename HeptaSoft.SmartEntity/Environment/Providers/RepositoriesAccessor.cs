@@ -1,6 +1,6 @@
-﻿using System;
+﻿using HeptaSoft.Common.DataAccess;
+using System;
 using System.Collections.Generic;
-using HeptaSoft.Common.DataAccess;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
@@ -26,23 +26,20 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             removeDelegates = new Dictionary<Type, Delegate>();
         }
 
-        /// <summary>
-        /// Registers a repository and assigns it to the specified entity data type.
-        /// </summary>
-        /// <typeparam name="TEntityData">The type of the entity data.</typeparam>
-        /// <param name="repository">The repository.</param>
+        #region IRepositoryAccessorConfigurator
+
+        /// <inheritdoc />
         public void RegisterRepository<TEntityData>(IEntityRepository<TEntityData> repository) where TEntityData : class
         {
             this.RegisterCreateDelegate(typeof(TEntityData), repository.CreateAndAdd);
             this.RegisterRemoveDelegate(typeof(TEntityData), repository.Delete);
         }
 
-        /// <summary>
-        /// Creates a new instance of entity data.
-        /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
-        /// <returns></returns>
-        /// <exception cref="System.InvalidOperationException">No factory registered for the specified entity type.</exception>
+        #endregion
+
+        #region IRepositoryAccessor
+
+        /// <inheritdoc />
         public object CreateEntityData(Type entityType)
         {
             if (createDelegates.ContainsKey(entityType))
@@ -57,10 +54,7 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             }
         }
 
-        /// <summary>
-        /// Removes the entity data.
-        /// </summary>
-        /// <param name="entityDataInstance">The entity data instance.</param>
+        /// <inheritdoc />
         public void RemoveEntityData(object entityDataInstance)
         {
             var entityType = entityDataInstance.GetType();
@@ -75,6 +69,8 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
                 throw new InvalidOperationException(string.Format("Cannot remove the entity data instance: no remove delegate registered for entity type <{0}>.", entityType));
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Registers the create delegate.

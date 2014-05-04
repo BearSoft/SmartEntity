@@ -18,24 +18,20 @@ namespace HeptaSoft.SmartEntity.Mapping.Configuration
             this.resolver = resolver;
         }
 
-        /// <summary>
-        /// Exposes the "to dto" mapping configuration builder.
-        /// </summary>
-        /// <typeparam name="TDto">The type of the dto.</typeparam>
-        /// <returns>A builder for the mapping configuration./></returns>
+        #region IEntityMappingConfiguration
+
+        /// <inheritdoc />
         public ICustomMappingConfigurationBuilder<TEntityData, TDto> ToDto<TDto>()
         {
             return resolver.Resolve<ICustomMappingConfigurationBuilder<TEntityData, TDto>>();
         }
 
-        /// <summary>
-        /// Exposes the "from dto" mapping configuration builder.
-        /// </summary>
-        /// <typeparam name="TDto">The type of the dto.</typeparam>
-        /// <returns>A builder for the mapping configuration./></returns>
+        /// <inheritdoc />
         public ICustomMappingConfigurationBuilder<TDto, TEntityData> FromDto<TDto>()
         {
             return resolver.Resolve<ICustomMappingConfigurationBuilder<TDto, TEntityData>>();
         }
+
+        #endregion
     }
 }

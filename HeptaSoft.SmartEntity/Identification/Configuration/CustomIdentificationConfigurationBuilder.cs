@@ -1,16 +1,15 @@
-﻿using System;
+﻿using HeptaSoft.Common.Helpers;
+using HeptaSoft.SmartEntity.Environment.Providers;
+using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using HeptaSoft.Common.Helpers;
-using HeptaSoft.SmartEntity.Basic;
-using HeptaSoft.SmartEntity.Environment.Providers;
-using HeptaSoft.SmartEntity.Mapping.Accessors;
 
 namespace HeptaSoft.SmartEntity.Identification.Configuration
 {
     internal class CustomCustomIdentificationConfigurationBuilder<TEntityData> : ICustomIdentificationConfigurationBuilder<TEntityData>
-        where TEntityData:class 
+        where TEntityData : class
     {
         /// <summary>
         /// The identifications manager.
@@ -40,10 +39,9 @@ namespace HeptaSoft.SmartEntity.Identification.Configuration
             this.propertyAccessorsProvider = propertyAccessorsProvider;
         }
 
-        /// <summary>
-        /// Adds an identification key based on one or more properties.
-        /// </summary>
-        /// <param name="keyProperties">The properties composing the key.</param>
+        #region ICustomIdentificationConfigurationBuilder
+
+        /// <inheritdoc />
         public void AddKey(params Expression<Func<TEntityData, object>>[] keyProperties)
         {
             var keyPropertyAccessors = new List<IPropertyAccessor>();
@@ -58,5 +56,7 @@ namespace HeptaSoft.SmartEntity.Identification.Configuration
 
             this.identificationsContainer.RegisterFinder(typeof(TEntityData), predicate);
         }
+
+        #endregion
     }
 }

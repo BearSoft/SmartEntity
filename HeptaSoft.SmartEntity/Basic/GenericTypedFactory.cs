@@ -2,8 +2,11 @@
 
 namespace HeptaSoft.SmartEntity.Basic
 {
-    class GenericTypedFactory<T> 
+    class GenericTypedFactory<T>
     {
+        /// <summary>
+        /// The resolver
+        /// </summary>
         private IFunctionalityResolver resolver;
 
         /// <summary>

@@ -1,17 +1,10 @@
-﻿using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Mapping.Accessors;
+﻿using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System.Collections.Generic;
 
 namespace HeptaSoft.SmartEntity.Identification
 {
     internal interface IFinder
     {
-        /// <summary>
-        /// Identifies the specified parameters with values.
-        /// </summary>
-        /// <param name="keyPropertyValues">The key property values.</param>
-        /// <returns></returns>
-        object Find(IDictionary<IPropertyAccessor, object> keyPropertyValues);
-
         /// <summary>
         /// Gets the required properties.
         /// </summary>
@@ -19,5 +12,12 @@ namespace HeptaSoft.SmartEntity.Identification
         /// The required properties.
         /// </value>
         IEnumerable<IPropertyAccessor> RequiredProperties { get; }
+
+        /// <summary>
+        /// Identifies the specified parameters with values.
+        /// </summary>
+        /// <param name="keyPropertyValues">The key property values.</param>
+        /// <returns></returns>
+        object Find(IDictionary<IPropertyAccessor, object> keyPropertyValues);
     }
 }

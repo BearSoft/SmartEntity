@@ -27,13 +27,16 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         }
 
         /// <summary>
-        /// Converts the specified value to required type.
+        /// When override, does the actual conversion of provided value to the required type.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="requiredType">Type of the required.</param>
-        /// <returns>
-        /// The converted value.
-        /// </returns>
+        /// <returns>The converted object.</returns>
+        protected abstract object DoConvert(object value, Type requiredType);
+
+        #region IConverter
+
+        /// <inheritdoc />
         public object ConvertTo(object value, Type requiredType)
         {
             if (value != null)
@@ -67,25 +70,12 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
             }
         }
 
-        /// <summary>
-        /// Determines whether this instance can convert from <paramref name="from"/> type to <paramref name="to"/> type.
-        /// </summary>
-        /// <param name="from">Source type</param>
-        /// <param name="to">Required output type.</param>
-        /// <returns>
-        ///   <c>true</c> if this instance can perform the conversion between specified types; otherwise, <c>false</c>.
-        /// </returns>
-        public virtual bool CanConvert(Type @from, Type to)
+        /// <inheritdoc />
+        public virtual bool CanConvert(Type from, Type to)
         {
-            return (this.possibleInputTypes.Contains(@from)) && (this.possibleOutputTypes.Contains(to));
+            return (this.possibleInputTypes.Contains(from)) && (this.possibleOutputTypes.Contains(to));
         }
 
-        /// <summary>
-        /// When overrides, does the actual conversion conversion of provided value to the required type.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="requiredType">Type of the required.</param>
-        /// <returns></returns>
-        protected abstract object DoConvert(object value, Type requiredType);
+        #endregion
     }
 }

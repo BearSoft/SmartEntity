@@ -62,8 +62,7 @@ namespace HeptaSoft.SmartEntity
         /// <returns>The <see cref="SmartEntity{T}"/> instance.</returns>
         public SmartEntity<TData> Create(TData entityData)
         {
-            var newInstance = new SmartEntity<TData>(this.mapper, this.finder, this.repositoryAccessor, entityData);
-            return newInstance;
+            return new SmartEntity<TData>(this.mapper, this.finder, this.repositoryAccessor, entityData);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Environment.Providers;
+﻿using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Mapping;
 using HeptaSoft.SmartEntity.Mapping.Accessors;
 using HeptaSoft.SmartEntity.Mapping.Engines;
+using System;
+using System.Collections.Generic;
 
 namespace HeptaSoft.SmartEntity.Identification
 {
@@ -30,24 +30,15 @@ namespace HeptaSoft.SmartEntity.Identification
             this.directValueMapper = directValueMapper;
         }
 
-        /// <summary>
-        /// Finds an entity the by identifying it using the values from the provided dto instance.
-        /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
-        /// <param name="dtoInstance">The dto instance.</param>
-        /// <returns></returns>
+        #region IEntityFinder
+
+        /// <inheritdoc />
         public object FindByDto(Type entityType, object dtoInstance)
         {
             return this.FindByDto(entityType, dtoInstance, null);
         }
 
-        /// <summary>
-        /// Finds the by dto, considering the target entity properties having the prefix specified by <paramref name="offsetPath"/>.
-        /// </summary>
-        /// <param name="entityType">Type of the entity.</param>
-        /// <param name="dtoInstance">The dto instance.</param>
-        /// <param name="offsetPath">The offset path.</param>
-        /// <returns></returns>
+        /// <inheritdoc />
         public object FindByDto(Type entityType, object dtoInstance, PropertyPath offsetPath)
         {
             var identificationPredicates = this.identificationsProvider.GetFinders(entityType);
@@ -69,6 +60,8 @@ namespace HeptaSoft.SmartEntity.Identification
 
             return null;
         }
+
+        #endregion
 
         /// <summary>
         /// Gets the key values for specified predicate.
@@ -104,7 +97,7 @@ namespace HeptaSoft.SmartEntity.Identification
             else
             {
                 return null;
-            }            
+            }
         }
     }
 }

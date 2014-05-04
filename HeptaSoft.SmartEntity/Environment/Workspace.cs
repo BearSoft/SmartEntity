@@ -1,5 +1,5 @@
-﻿using HeptaSoft.Common.Modularity;
-using HeptaSoft.Common.DataAccess;
+﻿using HeptaSoft.Common.DataAccess;
+using HeptaSoft.Common.Modularity;
 using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Identification.Configuration;
 using HeptaSoft.SmartEntity.Mapping.Configuration;
@@ -70,11 +70,7 @@ namespace HeptaSoft.SmartEntity.Environment
 
         #region IWorkspace
 
-        /// <summary>
-        /// Pushes a new converter on top of the converters stack.
-        /// Whenever a converted is needed, the selection starts with the top-most instance in the stack.
-        /// </summary>
-        /// <param name="converter">The converter instance.</param>
+        /// <inheritdoc />
         public void PushConverter(IConverter converter)
         {
             lock (this.convertersStack)
@@ -83,10 +79,7 @@ namespace HeptaSoft.SmartEntity.Environment
             }
         }
 
-        /// <summary>
-        /// Register an entity configuration.
-        /// </summary>
-        /// <returns>The configuration for the specified entity type.</returns>
+        /// <inheritdoc />
         public void RegisterEntityConfigurator<TEntityData>(IEntityConfigurator<TEntityData> configurator) where TEntityData : class
         {
             // register the context factory
@@ -94,11 +87,10 @@ namespace HeptaSoft.SmartEntity.Environment
             this.contextFactoryContainer.RegisterContextFactory(typeof(TEntityData), contextFactory);
             var repositoryFactory = this.resolver.Resolve<IEntityRepositoryFactory<TEntityData>>();
             var repositoryInstance = repositoryFactory.Create(contextFactory);
-            Expression<Func<Expression<Func<TEntityData, bool>>, TEntityData>>  getFromRepositoryLambda = (filterExpression) => repositoryInstance.GetSingleOrNullByFilter(filterExpression);
+            Expression<Func<Expression<Func<TEntityData, bool>>, TEntityData>> getFromRepositoryLambda = (filterExpression) => repositoryInstance.GetSingleOrNullByFilter(filterExpression);
             this.repositoryFilterExecutorRegistrator.RegisterFilterExecutor(typeof(TEntityData), getFromRepositoryLambda);
 
             // register the entity data factory
-
             this.repositoryAccessorConfigurator.RegisterRepository<TEntityData>(repositoryInstance);
 
             // run identification configuration

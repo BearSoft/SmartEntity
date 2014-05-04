@@ -1,15 +1,15 @@
-﻿using System;
+﻿using HeptaSoft.SmartEntity.Mapping.Accessors;
+using System;
 using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Mapping.Accessors;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class PropertyAccessorsProvider : IPropertyAccessorsProvider
     {
         /// <summary>
-        /// The chached property accessors.
+        /// The cached property accessors.
         /// </summary>
-        private readonly Dictionary<Type,HashSet<IPropertyAccessor>> propertyAccessors;
+        private readonly Dictionary<Type, HashSet<IPropertyAccessor>> propertyAccessors;
 
         /// <summary>
         /// The property accessor factory.
@@ -26,11 +26,9 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             this.accessorFactory = accessorFactory;
         }
 
-        /// <summary>
-        /// Gets the accessors for all the public properties of the specified type.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns>The list of property accessors.</returns>
+        #region IPropertyAccessorsProvider
+
+        /// <inheritdoc />
         public IEnumerable<IPropertyAccessor> GetPropertyAccessors(Type type)
         {
             if (!propertyAccessors.ContainsKey(type))
@@ -42,12 +40,7 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             return propertyAccessors[type];
         }
 
-        /// <summary>
-        /// Gets the property accessor for specified property name of the specified dto type.
-        /// </summary>
-        /// <param name="dtoType">Type of the dto.</param>
-        /// <param name="propertyName">Name of the property.</param>
-        /// <returns></returns>
+        /// <inheritdoc />
         public IPropertyAccessor GetPropertyAccessor(Type dtoType, string propertyName)
         {
             var propertyAccessorsForType = GetPropertyAccessors(dtoType);
@@ -61,6 +54,8 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
 
             return null;
         }
+
+        #endregion
 
         /// <summary>
         /// Generates the property accessors.
@@ -77,7 +72,6 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             }
 
             return accessors;
-        } 
-
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         /// The converted value.
         /// </returns>
         object ConvertTo(object value, Type requiredType);
-        
+
         /// <summary>
         /// Determines whether this instance can convert from <paramref name="from"/> type to <paramref name="to"/> type.
         /// </summary>
@@ -23,6 +23,5 @@ namespace HeptaSoft.SmartEntity.Mapping.Conversion
         ///   <c>true</c> if this instance can perform the conversion between specified types; otherwise, <c>false</c>.
         /// </returns>
         bool CanConvert(Type from, Type to);
-
     }
 }

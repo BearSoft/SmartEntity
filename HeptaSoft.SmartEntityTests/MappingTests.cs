@@ -26,9 +26,9 @@ namespace HeptaSoft.SmartEntityTests
             entity.FillFromDto(classA);
 
             // Assert
-            Assert.IsTrue(entity.Data.NumericProperty.Equals(classA.NumericProperty));
-            Assert.IsTrue(entity.Data.DateProperty.Equals(classA.DateProperty));
-            Assert.IsTrue(entity.Data.StringProperty.Equals(classA.StringProperty));
+            Assert.AreEqual(entity.Data.NumericProperty, classA.NumericProperty);
+            Assert.AreEqual(entity.Data.DateProperty, classA.DateProperty);
+            Assert.AreEqual(entity.Data.StringProperty, classA.StringProperty);
         }
 
 
@@ -57,9 +57,9 @@ namespace HeptaSoft.SmartEntityTests
             entity.FillFromDto(classA);
 
             // Assert
-            Assert.IsTrue(entity.Data.NumericProperty.Equals(classA.NumericProperty));
-            Assert.IsTrue(entity.Data.DateProperty.Equals(classA.DateProperty));
-            Assert.IsTrue(entity.Data.StringProperty.Equals(classA.StringProperty));
+            Assert.AreEqual(entity.Data.NumericProperty, classA.NumericProperty);
+            Assert.AreEqual(entity.Data.DateProperty, classA.DateProperty);
+            Assert.AreEqual(entity.Data.StringProperty, classA.StringProperty);
         }
 
         [TestMethod]
@@ -89,9 +89,9 @@ namespace HeptaSoft.SmartEntityTests
             entity.FillFromDto(classBStringifiedy);
 
             // Assert
-            Assert.IsTrue(entity.Data.NumericProperty.Equals(int.Parse(classBStringifiedy.NumericProperty)));
-            Assert.IsTrue(entity.Data.DateProperty.Equals(DateTime.Parse(classBStringifiedy.DateProperty)));
-            Assert.IsTrue(entity.Data.StringProperty.Equals(classBStringifiedy.StringProperty));
+            Assert.AreEqual(entity.Data.NumericProperty, int.Parse(classBStringifiedy.NumericProperty));
+            Assert.AreEqual(entity.Data.DateProperty, DateTime.Parse(classBStringifiedy.DateProperty));
+            Assert.AreEqual (entity.Data.StringProperty, classBStringifiedy.StringProperty);
             */
         }
 

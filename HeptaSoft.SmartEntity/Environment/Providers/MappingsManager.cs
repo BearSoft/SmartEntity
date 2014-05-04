@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using HeptaSoft.SmartEntity.Mapping;
+﻿using HeptaSoft.SmartEntity.Mapping;
 using HeptaSoft.SmartEntity.Mapping.Accessors;
 using HeptaSoft.SmartEntity.Mapping.Engines;
 using HeptaSoft.SmartEntity.Mapping.Mappings;
+using System;
+using System.Collections.Generic;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
@@ -43,13 +43,16 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             this.propertyAccessorsProvider = propertyAccessorsProvider;
         }
 
-        /// <summary>
-        /// Adds a mapping to the manager's conatiner.
-        /// </summary>
-        /// <param name="sourceValueGetter">The source value getter.</param>
-        /// <param name="sourceDtoType">Type of the source dto.</param>
-        /// <param name="targetPropertyAccessor">The target property accessor.</param>
-        public void AddMapping(IValueGetter sourceValueGetter, Type sourceDtoType,IPropertyAccessor targetPropertyAccessor)
+        #region IMappingsManager
+
+        /// <inheritdoc />
+        public void AddMapping(IPropertyAccessor sourcePropertyAccessor, IPropertyAccessor targetPropertyAccessor)
+        {
+            this.AddMapping(sourcePropertyAccessor, sourcePropertyAccessor.DtoType, targetPropertyAccessor);
+        }
+
+        /// <inheritdoc />
+        public void AddMapping(IValueGetter sourceValueGetter, Type sourceDtoType, IPropertyAccessor targetPropertyAccessor)
         {
             var newMapping = mappingFactory.Create(sourceValueGetter, targetPropertyAccessor);
             var mappingHashCode = this.BuildMappingHashCode(sourceDtoType, targetPropertyAccessor.DtoType, targetPropertyAccessor.PropertyName);
@@ -60,28 +63,11 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
             }
         }
 
-        /// <summary>
-        /// Adds a mapping to the manager's conatiner.
-        /// </summary>
-        /// <param name="sourcePropertyAccessor">The source property accessor.</param>
-        /// <param name="targetPropertyAccessor">The target property accessor.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public void AddMapping(IPropertyAccessor sourcePropertyAccessor, IPropertyAccessor targetPropertyAccessor)
-        {
-            this.AddMapping(sourcePropertyAccessor, sourcePropertyAccessor.DtoType, targetPropertyAccessor);
-        }
-
-        /// <summary>
-        /// Gets the mapping.
-        /// </summary>
-        /// <param name="targetDtoType">Type of the target dto.</param>
-        /// <param name="sourceDtoType">Type of the source dto.</param>
-        /// <param name="targetPropertyPath">The path of the target property.</param>
-        /// <returns>The appropriate mapping, or null if none was explicitelly defined or possible to auto-generate.</returns>
+        /// <inheritdoc />
         public IMapping GetMapping(Type targetDtoType, Type sourceDtoType, PropertyPath targetPropertyPath)
         {
             var mappingHashCode = this.BuildMappingHashCode(targetDtoType, sourceDtoType, targetPropertyPath.AbsolutePath);
-           
+
             if (!mappings.ContainsKey(mappingHashCode))
             {
                 var generatedMapping = this.GenerateMapping(targetDtoType, sourceDtoType, targetPropertyPath);
@@ -90,6 +76,8 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
 
             return mappings[mappingHashCode];
         }
+
+        #endregion
 
         /// <summary>
         /// Builds the hash code for the mapping identification.

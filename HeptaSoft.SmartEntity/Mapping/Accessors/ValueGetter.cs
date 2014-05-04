@@ -11,12 +11,15 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
             this.getValueDelegate = getValueDelegate;
         }
 
+        #region IValueGetter
+
+        /// <inheritdoc />
         public object GetValue(object instance)
         {
             return this.getValueDelegate.DynamicInvoke(instance);
         }
 
-
+        /// <inheritdoc />
         public Type ValueType
         {
             get
@@ -25,5 +28,6 @@ namespace HeptaSoft.SmartEntity.Mapping.Accessors
             }
         }
 
+        #endregion
     }
 }
