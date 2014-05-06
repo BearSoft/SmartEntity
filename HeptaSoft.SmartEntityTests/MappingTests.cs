@@ -2,7 +2,6 @@
 using HeptaSoft.SmartEntityTests.TestData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Linq.Expressions;
 
 namespace HeptaSoft.SmartEntityTests
 {
@@ -30,7 +29,6 @@ namespace HeptaSoft.SmartEntityTests
             Assert.AreEqual(entity.Data.DateProperty, classA.DateProperty);
             Assert.AreEqual(entity.Data.StringProperty, classA.StringProperty);
         }
-
 
         [TestMethod]
         public void CanAutoMapOverwrite()
@@ -63,18 +61,8 @@ namespace HeptaSoft.SmartEntityTests
         }
 
         [TestMethod]
-        public void CanAutoMapAndManualMap()
+        public void CanAutoMapAndBasicConvert()
         {
-            const int mappedValue = 7;
-
-            // arrange
-
-        }
-
-        [TestMethod]
-        public void CanAutoMapAndConvert()
-        {
-            /*
             // Arrange
             var classBStringifiedy = new ClassBStringified()
             {
@@ -91,24 +79,47 @@ namespace HeptaSoft.SmartEntityTests
             // Assert
             Assert.AreEqual(entity.Data.NumericProperty, int.Parse(classBStringifiedy.NumericProperty));
             Assert.AreEqual(entity.Data.DateProperty, DateTime.Parse(classBStringifiedy.DateProperty));
-            Assert.AreEqual (entity.Data.StringProperty, classBStringifiedy.StringProperty);
-            */
+            Assert.AreEqual(entity.Data.StringProperty, classBStringifiedy.StringProperty);
         }
 
         [TestMethod]
-        public void CanMapSiglePropertyToTwoDtos()
+        public void CanAutoMapToTwoDtos()
         {
             const int mappedValue = 7;
+            // Arrange
+            var classA = new ClassA()
+            {
+                NumericProperty = 1,
+                DateProperty = new DateTime(2000, 10, 29),
+                StringProperty = "abc"
+            };
 
-            // arrange
+            var factory = new SmartEntityFactory<ClassA>();
+            var entity = factory.Create(classA);
 
+            // Act
+            var classB = entity.ToDto<ClassB>();
+            var classBS = entity.ToDto<ClassBStringified>();
+
+            // Assert
+            Assert.AreEqual(entity.Data.NumericProperty, classA.NumericProperty);
+            Assert.AreEqual(entity.Data.DateProperty, classA.DateProperty);
+            Assert.AreEqual(entity.Data.StringProperty, classA.StringProperty);
+
+            Assert.AreEqual(classB.NumericProperty, classA.NumericProperty);
+            Assert.AreEqual(classB.DateProperty, classA.DateProperty);
+            Assert.AreEqual(classB.StringProperty, classA.StringProperty);
+
+            Assert.AreEqual(int.Parse(classBS.NumericProperty), classA.NumericProperty);
+            Assert.AreEqual(DateTime.Parse(classBS.DateProperty), classA.DateProperty);
+            Assert.AreEqual(classBS.StringProperty, classA.StringProperty);
         }
 
         [TestMethod]
         public void CanBuildNestedObjectsByExpression()
         {
             // arrange
-            Expression<Func<ClassA, int>> path = x => x.ObjectProperty.NumericProperty;
+            // Expression<Func<ClassA, int>> path = x => x.ObjectProperty.NumericProperty;
 
             // Act
 

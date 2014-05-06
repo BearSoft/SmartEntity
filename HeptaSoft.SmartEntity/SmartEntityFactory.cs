@@ -20,9 +20,9 @@ namespace HeptaSoft.SmartEntity
         /// The repository accessor.
         /// </summary>
         private readonly IRepositoryAccessor repositoryAccessor;
-        
+
         #region Framework-Exposed Constructor
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SmartEntity{TData}" /> class.
         /// The "exposed" constructor.

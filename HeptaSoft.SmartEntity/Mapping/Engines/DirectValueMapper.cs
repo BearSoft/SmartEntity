@@ -1,6 +1,7 @@
-﻿using System;
-using HeptaSoft.SmartEntity.Environment.Providers;
+﻿using HeptaSoft.SmartEntity.Environment.Providers;
 using HeptaSoft.SmartEntity.Mapping.Accessors;
+using HeptaSoft.SmartEntity.Mapping.Conversion;
+using System;
 
 namespace HeptaSoft.SmartEntity.Mapping.Engines
 {
@@ -25,6 +26,10 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
         {
             this.converterStack = converterStack;
             this.mappingsManager = mappingsManager;
+
+            // Register base converters
+            this.converterStack.PushConverter(new ConvertibleConverter());
+            this.converterStack.PushConverter(new SameTypeConverter());
         }
 
         #region IDirectValueMapper
