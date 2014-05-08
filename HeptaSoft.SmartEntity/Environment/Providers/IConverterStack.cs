@@ -6,10 +6,15 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
     internal interface IConverterStack
     {
         /// <summary>
-        /// Adds a converter on top of the stack. The last added has the highest priority on retrieval.
+        /// Adds converters on top of the stack. The last added has the highest priority on retrieval.
         /// </summary>
         /// <param name="converter">The converter.</param>
-        void PushConverter(IConverter converter);
+        void PushConverters(params IConverter[] converter);
+
+        /// <summary>
+        /// Clears the converters (empties).
+        /// </summary>
+        void ClearConverters();
 
         /// <summary>
         /// Gets the top matching converter.

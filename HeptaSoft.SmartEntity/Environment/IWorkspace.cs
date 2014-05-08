@@ -9,7 +9,12 @@ namespace HeptaSoft.SmartEntity.Environment
         /// Whenever a converted is needed, the selection starts with the top-most instance in the stack.
         /// </summary>
         /// <param name="converter">The converter instance.</param>
-        void PushConverter(IConverter converter);
+        void PushConverters(params IConverter[] converter);
+
+        /// <summary>
+        /// Clears the converters (empties).
+        /// </summary>
+        void ClearConverters();
 
         /// <summary>
         /// Register an entity configuration.

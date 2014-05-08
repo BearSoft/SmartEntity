@@ -71,11 +71,20 @@ namespace HeptaSoft.SmartEntity.Environment
         #region IWorkspace
 
         /// <inheritdoc />
-        public void PushConverter(IConverter converter)
+        public void PushConverters(params IConverter[] converter)
         {
             lock (this.convertersStack)
             {
-                this.convertersStack.PushConverter(converter);
+                this.convertersStack.PushConverters(converter);
+            }
+        }
+
+        /// <inheritdoc />
+        public void ClearConverters()
+        {
+            lock (this.convertersStack)
+            {
+                this.convertersStack.ClearConverters();
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using HeptaSoft.SmartEntity.Mapping.Conversion;
+﻿using System.Linq;
+using HeptaSoft.SmartEntity.Mapping.Conversion;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +7,9 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
 {
     internal class ConvertersStack : IConverterStack
     {
+        /// <summary>
+        /// The converters list
+        /// </summary>
         private readonly List<IConverter> converters;
 
         /// <summary>
@@ -19,23 +23,24 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
         #region IConverterStack
 
         /// <inheritdoc />
-        public void PushConverter(IConverter converter)
+        public void PushConverters(params IConverter[] converter)
         {
-            this.converters.Insert(0, converter);
+            foreach (var conv in converter)
+            {
+                this.converters.Insert(0, conv);
+            }
+        }
+
+        /// <inheritdoc />
+        public void ClearConverters()
+        {
+            this.converters.Clear();
         }
 
         /// <inheritdoc />
         public IConverter GetTopMatchingConverter(Type fromType, Type toType)
         {
-            foreach (var converter in this.converters)
-            {
-                if (converter.CanConvert(fromType, toType))
-                {
-                    return converter;
-                }
-            }
-
-            return null;
+            return this.converters.FirstOrDefault(x => x.CanConvert(fromType, toType));
         }
 
         #endregion
