@@ -40,14 +40,12 @@ namespace HeptaSoft.SmartEntityTests
                 DateProperty = new DateTime(2000, 10, 29),
                 StringProperty = "abc"
             };
-
             var classB = new ClassB()
             {
                 NumericProperty = 2,
                 DateProperty = new DateTime(2000, 11, 29),
                 StringProperty = "abcdef"
             };
-
             var factory = new SmartEntityFactory<ClassB>();
             var entity = factory.Create(classB);
 
@@ -85,7 +83,6 @@ namespace HeptaSoft.SmartEntityTests
         [TestMethod]
         public void CanAutoMapToTwoDtos()
         {
-            const int mappedValue = 7;
             // Arrange
             var classA = new ClassA()
             {
@@ -93,7 +90,6 @@ namespace HeptaSoft.SmartEntityTests
                 DateProperty = new DateTime(2000, 10, 29),
                 StringProperty = "abc"
             };
-
             var factory = new SmartEntityFactory<ClassA>();
             var entity = factory.Create(classA);
 
@@ -149,7 +145,5 @@ namespace HeptaSoft.SmartEntityTests
 
             // Assert
         }
-
     }
-
 }
