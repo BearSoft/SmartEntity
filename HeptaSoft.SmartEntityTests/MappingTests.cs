@@ -132,7 +132,6 @@ namespace HeptaSoft.SmartEntityTests
             Assert.AreEqual(int.Parse(classBS.ObjectProperty.NumericProperty), classA.ObjectProperty.NumericProperty);
         }
 
-
         [TestMethod]
         public void CanConvertNestedObjectsMultipleLevels()
         {
@@ -169,32 +168,6 @@ namespace HeptaSoft.SmartEntityTests
             Assert.AreEqual(classB.ObjectProperty.ObjectProperty.ObjectProperty.NumericProperty, simpleClassB.NumericProperty);
             Assert.AreEqual(classB.ObjectProperty.ObjectProperty.ObjectProperty.StringProperty, simpleClassB.StringProperty);
             Assert.AreEqual(classB.ObjectProperty.ObjectProperty.ObjectProperty.DateProperty, simpleClassB.DateProperty);
-        }
-
-
-        [TestMethod]
-        public void CanBuildNestedObjectsByExpression()
-        {
-            // Arrange
-            // Expression<Func<ClassA, int>> path = x => x.ObjectProperty.NumericProperty;
-
-            // Act
-
-            // Assert
-
-        }
-
-        [TestMethod]
-        public void CanBuildNestedObjectsByString()
-        {
-            // Arrange
-
-
-            // Act
-
-
-            // Assert
-
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HeptaSoft.SmartEntityTests.TestData;
+using HeptaSoft.SmartEntityTests;
 
 namespace HeptaSoft.SmartEntityTests
 {
@@ -7,18 +9,20 @@ namespace HeptaSoft.SmartEntityTests
     public class IdentificationTests
     {
         [TestMethod]
-        public void CanBuildFilter()
+        public void CanBuildRequiredFilter()
         {
-            const int numericValue = 7;
-            var dateValue = new DateTime(2000, 10, 29);
-            const string stringValue = "abc";
+            // Arrange
+            var classA = new ClassA()
+            {
+                NumericProperty = 7,
+                DateProperty = new DateTime(2000, 10, 29),
+            };
 
-            // arrange
-           
 
             // Act
-          
-            
+
+
+            // Assert
         }
     }
 }
