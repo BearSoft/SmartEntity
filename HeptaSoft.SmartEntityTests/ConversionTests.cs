@@ -1,4 +1,5 @@
 ﻿using HeptaSoft.SmartEntity;
+using HeptaSoft.SmartEntity.Environment;
 using HeptaSoft.SmartEntityTests.TestData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -10,10 +11,10 @@ namespace HeptaSoft.SmartEntityTests
     {
 
         [TestMethod]
-        public void CanBasicConvert()
+        public void CanBasicAutoConvert()
         {
             // Arrange
-            var classBStringifiedy = new ClassBStringified()
+            var classBStringified = new ClassBStringified()
             {
                 NumericProperty = "2",
                 DateProperty = "2000/11/29",
@@ -22,12 +23,36 @@ namespace HeptaSoft.SmartEntityTests
             var entity = new SmartEntityFactory<ClassB>().CreateEmpty();
 
             // Act
-            entity.FillFromDto(classBStringifiedy);
+            entity.FillFromDto(classBStringified);
 
             // Assert
-            Assert.AreEqual(entity.Data.NumericProperty, int.Parse(classBStringifiedy.NumericProperty));
-            Assert.AreEqual(entity.Data.DateProperty, DateTime.Parse(classBStringifiedy.DateProperty));
-            Assert.AreEqual(entity.Data.StringProperty, classBStringifiedy.StringProperty);
+            Assert.AreEqual(entity.Data.NumericProperty, int.Parse(classBStringified.NumericProperty));
+            Assert.AreEqual(entity.Data.DateProperty, DateTime.Parse(classBStringified.DateProperty));
+            Assert.AreEqual(entity.Data.StringProperty, classBStringified.StringProperty);
+        }
+
+        [TestMethod]
+        public void CanBasicCustomConvert()
+        {
+            // Arrange
+            var classB = new ClassB()
+            {
+                NumericProperty = 2,
+                StringProperty = "abcdef"
+            };
+            var customConverter = new DoubleStringNumberConverter();
+            Workspace.Current.PushConverter(customConverter);
+            var entity = new SmartEntityFactory<ClassB>().Create(classB);
+            
+            // Act
+            var classBStringified = entity.ToDto<ClassBStringified>();
+
+            // Assert
+            Assert.AreEqual(int.Parse(classBStringified.NumericProperty), classB.NumericProperty * 2);
+            Assert.AreEqual(entity.Data.StringProperty, classBStringified.StringProperty);
+
+            // Cleanup
+            //Workspace.Current.RemoveConverter(customConverter);
         }
 
         [TestMethod]

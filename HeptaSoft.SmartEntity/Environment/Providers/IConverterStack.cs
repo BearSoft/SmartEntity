@@ -1,5 +1,6 @@
 using System;
 using HeptaSoft.SmartEntity.Mapping.Conversion;
+using System.Collections.Generic;
 
 namespace HeptaSoft.SmartEntity.Environment.Providers
 {
@@ -9,7 +10,20 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
         /// Adds converters on top of the stack. The last added has the highest priority on retrieval.
         /// </summary>
         /// <param name="converter">The converter.</param>
-        void PushConverters(params IConverter[] converter);
+        void PushConverter(params IConverter[] converter);
+
+        /// <summary>
+        /// Removes a converter from the stack (if found).
+        /// </summary>
+        /// <param name="converter">The converter.</param>
+        /// <returns>True if sucessfully removed, False otherwise.</returns>
+        bool RemoveConverter(params IConverter[] converter);
+
+        /// <summary>
+        /// Gets all the converters that are currently registered.
+        /// </summary>
+        /// <returns>The current converters</returns>
+        IList<IConverter> GetConverters();
 
         /// <summary>
         /// Clears the converters (empties).

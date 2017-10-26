@@ -23,12 +23,29 @@ namespace HeptaSoft.SmartEntity.Environment.Providers
         #region IConverterStack
 
         /// <inheritdoc />
-        public void PushConverters(params IConverter[] converter)
+        public void PushConverter(params IConverter[] converter)
         {
             foreach (var conv in converter)
             {
                 this.converters.Insert(0, conv);
             }
+        }
+
+        /// <inheritdoc />
+        public bool RemoveConverter(params IConverter[] converter)
+        {
+            bool toReturn = true;
+            foreach (var conv in converter)
+            {
+                toReturn = toReturn && this.converters.Remove(conv);
+            }
+            return toReturn;
+        }
+
+        /// <inheritdoc />
+        public IList<IConverter> GetConverters()
+        {
+            return this.converters;
         }
 
         /// <inheritdoc />

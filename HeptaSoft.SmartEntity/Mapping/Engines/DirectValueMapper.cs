@@ -28,7 +28,7 @@ namespace HeptaSoft.SmartEntity.Mapping.Engines
             this.mappingsManager = mappingsManager;
 
             // Register default base converters
-            this.converterStack.PushConverters(new ConvertibleConverter(), new SameTypeConverter());
+            this.converterStack.PushConverter(new ConvertibleConverter(), new SameTypeConverter());
         }
 
         #region IDirectValueMapper

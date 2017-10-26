@@ -4,16 +4,16 @@ namespace HeptaSoft.SmartEntity.Environment
 {
     public interface IWorkspace
     {
-        /// <summary>
-        /// Pushes a new converter on top of the converters stack.
-        /// Whenever a converted is needed, the selection starts with the top-most instance in the stack.
-        /// </summary>
-        /// <param name="converter">The converter instance.</param>
-        void PushConverters(params IConverter[] converter);
+        /// <inheritdoc />
+        void PushConverter(params IConverter[] converter);
 
-        /// <summary>
-        /// Clears the converters (empties).
-        /// </summary>
+        /// <inheritdoc />
+        bool RemoveConverter(params IConverter[] converter);
+
+        /// <inheritdoc />
+        void ResetConverters();
+
+        /// <inheritdoc />
         void ClearConverters();
 
         /// <summary>

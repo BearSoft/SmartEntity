@@ -19,7 +19,12 @@ namespace HeptaSoft.SmartEntity.Environment
         /// <summary>
         /// The converters stack.
         /// </summary>
-        private readonly IConverterStack convertersStack;
+        private IConverterStack convertersStack;
+
+        /// <summary>
+        /// The initial converters stack (set by the default constructor).
+        /// </summary>
+        private readonly IConverterStack initialConvertersStack;
 
         /// <summary>
         /// The context factory container.
@@ -46,7 +51,7 @@ namespace HeptaSoft.SmartEntity.Environment
         /// <param name="resolver">The resolver.</param>
         internal Workspace(IConverterStack convertersStack, IContextFactoryContainer contextFactoryContainer, IRepositoryFilterExecutorRegistrator repositoryFilterExecutorRegistrator, IRepositoryAccessorConfigurator repositoryAccessorConfigurator, IFunctionalityResolver resolver)
         {
-            this.convertersStack = convertersStack;
+            this.initialConvertersStack = this.convertersStack = convertersStack;
             this.contextFactoryContainer = contextFactoryContainer;
             this.repositoryFilterExecutorRegistrator = repositoryFilterExecutorRegistrator;
             this.repositoryAccessorConfigurator = repositoryAccessorConfigurator;
@@ -71,11 +76,30 @@ namespace HeptaSoft.SmartEntity.Environment
         #region IWorkspace
 
         /// <inheritdoc />
-        public void PushConverters(params IConverter[] converter)
+        public void PushConverter(params IConverter[] converter)
         {
             lock (this.convertersStack)
             {
-                this.convertersStack.PushConverters(converter);
+                this.convertersStack.PushConverter(converter);
+            }
+        }
+
+        /// <inheritdoc />
+        public bool RemoveConverter(params IConverter[] converter)
+        {
+            lock (this.convertersStack)
+            {
+                return this.convertersStack.RemoveConverter(converter);
+            }
+        }
+
+        /// <inheritdoc />
+        public void ResetConverters()
+        {
+            lock (this.convertersStack)
+            {
+                this.convertersStack.ClearConverters();
+                this.convertersStack = this.initialConvertersStack;
             }
         }
 

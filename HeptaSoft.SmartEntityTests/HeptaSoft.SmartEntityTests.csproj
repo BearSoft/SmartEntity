@@ -61,6 +61,7 @@
     <Compile Include="TestData\ClassBStringified.cs" />
     <Compile Include="TestData\ClassC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestData\DoubleStringNumberConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HeptaSoft.SmartEntity\HeptaSoft.SmartEntity.csproj">
